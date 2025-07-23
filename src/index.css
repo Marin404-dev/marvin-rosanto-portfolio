@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+body {
+  background-image: radial-gradient(#ffffff4f 3px, transparent 1px);
+  background-size: 20px 20px;
+  background-color: black;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: -1;
+}
+
