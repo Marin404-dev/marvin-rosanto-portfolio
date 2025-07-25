@@ -39,6 +39,7 @@ export default function Header() {
           <nav className="flex flex-1 justify-center space-x-8 text-sm font-medium text-gray-700 dark:text-gray-200">
             <a href="#home" className="hover:text-blue-500 transition">Home</a>
             <a href="#about" className="hover:text-blue-500 transition">About</a>
+            <a href="#work" className="hover:text-blue-500 transition">Work</a>
             <a href="#contact" className="hover:text-blue-500 transition">Contact</a>
           </nav>
           <button
@@ -61,6 +62,10 @@ export default function Header() {
         <a href="#about" className="flex flex-col items-center text-xs hover:text-blue-400 transition">
           <Info size={20} />
           About
+        </a>
+        <a href="#work" className="flex flex-col items-center text-xs hover:text-blue-400 transition">
+          <Info size={20} />
+          Work
         </a>
         <a href="#contact" className="flex flex-col items-center text-xs hover:text-blue-400 transition">
           <Mail size={20} />

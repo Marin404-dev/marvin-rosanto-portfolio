@@ -126,9 +126,8 @@ const TrueFocus = ({
           ref={(el) => (wordRefs.current[i] = el)}
           onMouseEnter={() => handleMouseEnter(i)}
           onMouseLeave={handleMouseLeave}
-          className={`relative z-10 px-1 mx-1 sm:mx-2 md:mx-3 transition ${
-            i === currentIndex ? "text-white-400 font-bold" : ""
-          }`}
+          className={`relative z-10 px-1 mx-1 sm:mx-2 md:mx-3 transition ${i === currentIndex ? "text-white-400 font-bold" : ""
+            }`}
           style={i !== currentIndex ? { filter: `blur(${blurAmount}px)` } : {}}
         >
           {word}
@@ -140,7 +139,7 @@ const TrueFocus = ({
 
 export default function Hero() {
   return (
-    <section className="w-full min-h-screen flex flex-col justify-center items-center bg-transparent text-gray-900 dark:text-white">
+    <section className="w-full min-h-screen flex flex-col justify-center items-center bg-transparent text-gray-900 dark:text-white" id='home'>
       <div className="flex flex-col items-center">
         <h1 className='font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-4 text-center'>
           Marvin Rosanto
