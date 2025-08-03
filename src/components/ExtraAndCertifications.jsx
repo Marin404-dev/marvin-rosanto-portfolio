@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import smart_city_img_1 from '../assets/baguio-smart-city-1.jpg';
-import tcs_1_img from '../assets/tcs-1.jpg';
-import tcs_2_img from '../assets/tcs-2.png';
+import tcs_1_img from '../assets/TCS-1.jpg';
+import tcs_2_img from '../assets/TCS-2.png';
 
 const DEFAULT_ITEMS = [
   {
