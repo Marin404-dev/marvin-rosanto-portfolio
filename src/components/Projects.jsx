@@ -1,5 +1,7 @@
 import React from 'react'
 import img from '../assets/marvin.jpg'
+import ultrapark_img from '../assets/ultrapark-1.png'
+import pma_pmis_img from '../assets/pma-1.png'
 import { FaGithub } from "react-icons/fa";
 
 export default function Projects() {
@@ -13,13 +15,14 @@ export default function Projects() {
       </div>
 
       <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 max-w-5xl w-full'>
+        {/* UltraPark Project Card */}
         <div className='rounded-xl border bg-card text-card-foreground shadow flex flex-col'>
           <div className='flex flex-col space-y-1.5 p-6'>
             <a href="/">
-              <img src={img} alt="" class="h-100 w-full object-cover object-top rounded-md" /></a>
+              <img src={ultrapark_img} alt="" class="h-100 w-full object-cover object-top rounded-md hover:scale-115 transition duration-300 ease-in-out" /></a>
           </div>
           <div className='p-6 pt-0 flex flex-col gap-2'>
-            <h3>Test </h3>
+            <h3>Ultrapark</h3>
             <div className='prose max-w-full text-pretty font-sans text-xs text-muted-foreground dark:prose-invert'>
               <p className='text-sm text-muted-foreground'>
                 A project showcasing my skills in web development, focusing on responsive design and user experience.
@@ -51,13 +54,14 @@ export default function Projects() {
           </div>
         </div>
 
+        {/* PMA PMIS Project Card */}
         <div className='rounded-xl border bg-card text-card-foreground shadow flex flex-col'>
           <div className='flex flex-col space-y-1.5 p-6'>
             <a href="/">
-              <img src={img} alt="" class="h-100 w-full object-cover object-top rounded-md" /></a>
+              <img src={pma_pmis_img} alt="" class="h-100 w-full object-cover object-top rounded-md" /></a>
           </div>
           <div className='p-6 pt-0 flex flex-col gap-2'>
-            <h3>Test  s</h3>
+            <h3>PMA PMIS</h3>
             <div className='prose max-w-full text-pretty font-sans text-xs text-muted-foreground dark:prose-invert'>
               <p className='text-sm text-muted-foreground'>
                 A project showcasing my skills in web development, focusing on responsive design and user experience.

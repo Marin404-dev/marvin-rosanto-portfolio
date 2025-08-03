@@ -8,7 +8,7 @@ export default function AboutMe() {
         <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-5xl mb-8 text-center">About Me</h1>
       </div>
 
-      <div className="max-w-5xl w-full flex flex-col md:flex-row gap-8 h-[600px]">
+      <div className="max-w-5xl w-full flex flex-col md:flex-row gap-8">
         {/* Left content */}
         <div className="flex-1 md:basis-[60%] bg-gray-600/60 text-white p-8 rounded-xl shadow-md flex flex-col justify-between">
           <div>

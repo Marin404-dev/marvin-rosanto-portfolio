@@ -153,7 +153,7 @@ export default function Hero() {
       <div className="mt-32 flex gap-4">
         {/* GitHub */}
         <a
-          href=""
+          href="https://github.com/Marin404-dev"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"

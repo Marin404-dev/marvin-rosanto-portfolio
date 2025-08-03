@@ -8,14 +8,12 @@
     @apply bg-white text-black min-h-screen overflow-x-hidden scroll-smooth;
     background-image: radial-gradient(#0000000f 3px, transparent 1px);
     background-size: 20px 20px;
-    backdrop-filter: blur(2px);
   }
 
   .dark body {
     @apply bg-black text-white;
     background-image: radial-gradient(#ffffff4f 3px, transparent 1px);
     background-size: 20px 20px;
-    backdrop-filter: blur(2px);
   }
 
   body::before {
