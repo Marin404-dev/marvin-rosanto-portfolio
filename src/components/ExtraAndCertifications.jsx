@@ -5,18 +5,9 @@ import tcs_1_img from '../assets/TCS-1.jpg';
 import tcs_2_img from '../assets/TCS-2.png';
 
 const DEFAULT_ITEMS = [
-  {
-    id: 1,
-    image: smart_city_img_1,
-  },
-  {
-    id: 2,
-    image: tcs_1_img,
-  },
-  {
-    id: 3,
-    image: tcs_2_img,
-  },
+  { id: 1, image: smart_city_img_1 },
+  { id: 2, image: tcs_1_img },
+  { id: 3, image: tcs_2_img },
 ];
 
 const DRAG_BUFFER = 0;
@@ -44,6 +35,7 @@ export function Carousel({
   const [isResetting, setIsResetting] = useState(false);
 
   const containerRef = useRef(null);
+
   useEffect(() => {
     if (pauseOnHover && containerRef.current) {
       const container = containerRef.current;
@@ -104,10 +96,13 @@ export function Carousel({
   return (
     <div
       ref={containerRef}
-      className={`relative overflow-hidden p-4 ${round ? "rounded-full border border-white" : "rounded-[24px] border border-[#222] dark:border-[#fff] bg-[#f8f8f8] dark:bg-[#111] dark:text-[#fff]"
+      className={`relative overflow-hidden p-4 ${round
+        ? "rounded-full border border-white"
+        : "rounded-[24px] border border-[#222] dark:border-[#fff] bg-[#f8f8f8] dark:bg-[#111] dark:text-[#fff]"
         }`}
       style={{
-        width: `${baseWidth}px`,
+        width: "100%",
+        maxWidth: `${baseWidth}px`,
         ...(round && { height: `${baseWidth}px` }),
       }}
     >
@@ -169,7 +164,7 @@ export function Carousel({
             <motion.div
               key={index}
               className={`h-2 w-2 rounded-full cursor-pointer transition-colors duration-150
-              ${currentIndex % items.length === index
+                ${currentIndex % items.length === index
                   ? round
                     ? "bg-white dark:bg-white"
                     : "bg-[#333333] dark:bg-white"
@@ -177,7 +172,6 @@ export function Carousel({
                     ? "bg-[#555] dark:bg-[#888]"
                     : "bg-[rgba(51,51,51,0.4)] dark:bg-[rgba(255,255,255,0.2)]"
                 }`}
-
               animate={{
                 scale: currentIndex % items.length === index ? 1.2 : 1,
               }}
@@ -192,7 +186,26 @@ export function Carousel({
 }
 
 export default function ExtraAndCertifications() {
-  const [activeTab, setActiveTab] = useState('competitions');
+  const [activeTab, setActiveTab] = useState("competitions");
+  const [carouselWidth, setCarouselWidth] = useState(800);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width < 480) {
+        setCarouselWidth(320);
+      } else if (width < 768) {
+        setCarouselWidth(600);
+      } else {
+        setCarouselWidth(800);
+      }
+    };
+
+    handleResize(); // initial run
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <section className="w-full min-h-screen flex flex-col justify-center items-center bg-transparent text-gray-900 dark:text-white px-4 py-16">
       <h2 className="text-4xl font-bold mb-2 text-center">Competitions and Certifications</h2>
@@ -200,31 +213,35 @@ export default function ExtraAndCertifications() {
         Here are some of the certifications and events I've participated in.
       </p>
 
-      {/* div for button (Extra-Curricular and Certification) */}
+      {/* Button Tabs */}
       <div className="flex border border-white rounded-xl overflow-hidden mb-12">
         <button
-          onClick={() => setActiveTab('competitions')}
-          className={`flex flex-col items-center justify-center px-6 py-4 w-40
-            ${activeTab === 'competitions' ? 'bg-white text-black font-bold border border-white' : 'text-white'}`}
+          onClick={() => setActiveTab("competitions")}
+          className={`flex flex-col items-center justify-center px-6 py-4 w-40 ${activeTab === "competitions"
+            ? "bg-white text-black font-bold border border-white"
+            : "text-white"
+            }`}
         >
           <div className="w-6 h-6 bg-gray-400 rounded-sm mb-1"></div>
           Competitions
         </button>
         <button
-          onClick={() => setActiveTab('certifications')}
-          className={`flex flex-col items-center justify-center px-6 py-4 w-40
-            ${activeTab === 'certifications' ? 'bg-white text-black font-bold border border-white' : 'text-white'}`}
+          onClick={() => setActiveTab("certifications")}
+          className={`flex flex-col items-center justify-center px-6 py-4 w-40 ${activeTab === "certifications"
+            ? "bg-white text-black font-bold border border-white"
+            : "text-white"
+            }`}
         >
           <div className="w-6 h-6 bg-gray-400 rounded-sm mb-1"></div>
           Certifications
         </button>
       </div>
 
-      {/* Render based on active tab */}
-      {activeTab === 'competitions' && (
-        <section className="extra-curricular">
+      {/* Carousel Section */}
+      {activeTab === "competitions" && (
+        <section className="extra-curricular w-full flex justify-center">
           <Carousel
-            baseWidth={800}
+            baseWidth={carouselWidth}
             autoplay
             loop
             pauseOnHover
@@ -233,7 +250,7 @@ export default function ExtraAndCertifications() {
         </section>
       )}
 
-      {activeTab === 'certifications' && (
+      {activeTab === "certifications" && (
         <section className="certifications">
           <p className="text-center">Certifications content</p>
         </section>
