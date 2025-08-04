@@ -32,7 +32,7 @@ export default function Projects() {
     <section className="w-full py-16 px-4 text-gray-900 dark:text-white" id="work">
       <div className="text-center mb-10">
         <h2 className="text-3xl sm:text-4xl font-bold mb-2">Projects</h2>
-        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-xl mx-auto text-nowrap">
+        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-xl mx-auto whitespace-normal sm:whitespace-nowrap">
           Showcasing some of my work in web development and full stack technologies.
         </p>
       </div>
