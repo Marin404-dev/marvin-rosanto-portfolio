@@ -214,32 +214,32 @@ export default function ExtraAndCertifications() {
       </p>
 
       {/* Button Tabs */}
-      <div className="flex border border-white rounded-xl overflow-hidden mb-12">
+      <div className="flex p-2 gap-8 border border-black dark:border-white rounded-xl overflow-hidden mb-12">
         <button
           onClick={() => setActiveTab("competitions")}
-          className={`flex flex-col items-center justify-center px-6 py-4 w-40 ${activeTab === "competitions"
-            ? "bg-white text-black font-bold border border-white"
-            : "text-white"
+          className={`flex flex-col items-center justify-center px-6 py-4 w-40 transition-colors duration-200 ${activeTab === "competitions"
+            ? "bg-white text-black font-bold border border-white dark:bg-white-900 dark:text-black dark:border-gray-900 rounded-xl"
+            : "text-black bg-gray-200 dark:text-white dark:bg-black"
             }`}
         >
-          <div className="w-6 h-6 bg-gray-400 rounded-sm mb-1"></div>
+          <div className="w-6 h-6 bg-gray-400 dark:bg-gray-600 rounded-sm mb-1"></div>
           Competitions
         </button>
         <button
           onClick={() => setActiveTab("certifications")}
-          className={`flex flex-col items-center justify-center px-6 py-4 w-40 ${activeTab === "certifications"
-            ? "bg-white text-black font-bold border border-white"
-            : "text-white"
+          className={`flex flex-col items-center justify-center px-6 py-4 w-40 transition-colors duration-200 ${activeTab === "certifications"
+            ? "bg-white text-black font-bold border border-white dark:bg-white-900 dark:text-black dark:border-gray-900 rounded-xl"
+            : "text-black bg-gray-200 dark:text-white dark:bg-black"
             }`}
         >
-          <div className="w-6 h-6 bg-gray-400 rounded-sm mb-1"></div>
+          <div className="w-6 h-6 bg-gray-400 dark:bg-gray-600 rounded-sm mb-1"></div>
           Certifications
         </button>
       </div>
 
       {/* Carousel Section */}
       {activeTab === "competitions" && (
-        <section className="extra-curricular w-full flex justify-center">
+        <section className="extra-curricular w-full flex justify-center mt-8">
           <Carousel
             baseWidth={carouselWidth}
             autoplay
@@ -251,8 +251,30 @@ export default function ExtraAndCertifications() {
       )}
 
       {activeTab === "certifications" && (
-        <section className="certifications">
-          <p className="text-center">Certifications content</p>
+        <section className="certifications w-full flex justify-center">
+          <div className="max-w-5xl w-full mx-auto">
+            <div className="grid grid-cols-3 gap-4 mt-8">
+
+              <div className="border p-4 rounded-lg shadow-md">
+                <img src={tcs_1_img} alt="cert-1-img" className="mb-6" />
+                <h3 className="text-lg font-semibold mb-2">Digital Skills: User Experience</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">Accenture</p>
+              </div>
+
+              <div className="border p-4 rounded-lg shadow-md">
+
+                <img src={tcs_1_img} alt="cert-1-img" className="mb-6" />
+                <h3 className="text-lg font-semibold mb-2">Graphic Design Essentials</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">Canva</p>
+              </div>
+
+              <div className="border p-4 rounded-lg shadow-md">
+                <img src={tcs_1_img} alt="cert-1-img" className="mb-6" />
+                <h3 className="text-lg font-semibold mb-2">Postman API Fundamentals Student Expert</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">Postman</p>
+              </div>
+            </div>
+          </div>
         </section>
       )}
     </section>

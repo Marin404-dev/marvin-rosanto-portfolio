@@ -7,6 +7,8 @@ import AboutMe from './components/AboutMe.jsx'
 import TechStack from './components/TechStack.jsx'
 import Projects from './components/Projects.jsx'
 import ExtraAndCertifications from './components/ExtraAndCertifications.jsx'
+import Footer from './components/Footer.jsx'
+import Contact from './components/Contact.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -21,6 +23,8 @@ createRoot(document.getElementById('root')).render(
         <TechStack />
         <Projects />
         <ExtraAndCertifications />
+        <Contact />
+        <Footer />
       </div>
     </div>
   </StrictMode>
