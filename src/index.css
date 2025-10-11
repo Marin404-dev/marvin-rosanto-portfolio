@@ -23,6 +23,11 @@
     z-index: -1;
   }
 
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
   h1,
   h2,
   h3,
