@@ -33,9 +33,9 @@ export default function Header() {
   return (
     <>
       {/* Desktop Header */}
-      <header className="hidden md:block sticky top-0 z-50 w-full bg-transparent backdrop-blur-[3px] px-16 py-6">
+      <header className="hidden md:block sticky top-0 z-50 w-full backdrop-blur-xl bg-background/80 border-b-2 border-border px-16 py-5">
         <div className="flex items-center justify-between">
-          <div></div>
+          <div className='text-xl font-bold'>MR</div>
           <nav className="flex flex-1 justify-center space-x-8 text-sm font-medium text-gray-700 dark:text-gray-200">
             <a href="#home" className="hover:text-blue-500 transition">Home</a>
             <a href="#about" className="hover:text-blue-500 transition">About</a>

@@ -74,9 +74,10 @@ const TrueFocus = ({
   return (
     <div
       ref={containerRef}
-      className={`relative inline-block text-base sm:text-lg md:text-xl lg:text-2xl ${className}`}
+      className={`relative flex flex-col sm:flex-row justify-center items-center text-base sm:text-lg md:text-xl lg:text-2xl ${className}`}
       style={{ padding: "0.5rem 1rem" }}
     >
+
       {/* Focus rectangle */}
       <motion.div
         className="absolute pointer-events-none"
@@ -139,50 +140,69 @@ const TrueFocus = ({
 
 export default function Hero() {
   return (
-    <section className="w-full min-h-screen flex flex-col justify-center items-center bg-transparent text-gray-900 dark:text-white" id='home'>
-      <div className="flex flex-col items-center">
-        <h1 className='font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-4 text-center'>
+    <section className="w-full min-h-screen flex flex-col justify-center items-center bg-transparent text-gray-900 dark:text-white text-center" id='home'>
+      <motion.div
+        className="flex flex-col items-center space-y-8"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <motion.h1
+          className='font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl'
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
           Marvin Rosanto
-        </h1>
-        <TrueFocus
-          className="flex flex-col items-center px-4 text-center max-w-full"
-          sentence="Web Developer|Quality Assurance|Full-Stack Developer"
-        />
-      </div>
+        </motion.h1>
 
-      <div className="mt-32 flex gap-4">
-        {/* GitHub */}
-        <a
-          href="https://github.com/Marin404-dev"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-          className="border border-gray-300 dark:border-white/30 rounded-[15px] p-3 hover:bg-black/10 dark:hover:bg-white/10 transition"
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
         >
-          <FaGithub size={24} className="text-gray-800 dark:text-white" />
-        </a>
+          <TrueFocus
+            className="flex flex-col items-center px-4 text-center max-w-full"
+            sentence="Web Developer|Quality Assurance|Full-Stack Developer"
+          />
+        </motion.div>
 
-        {/* LinkedIn */}
-        <a
-          href=""
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-          className="border border-gray-300 dark:border-white/30 rounded-[15px] p-3 hover:bg-black/10 dark:hover:bg-white/10 transition"
+        {/* Social icons */}
+        <motion.div
+          className="flex gap-4 justify-center mt-32"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.5 }}
         >
-          <FaLinkedin size={24} className="text-gray-800 dark:text-white" />
-        </a>
+          <a
+            href="https://github.com/Marin404-dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+            className="border border-gray-300 dark:border-white/30 rounded-[15px] p-3 hover:bg-black/10 dark:hover:bg-white/10 transition"
+          >
+            <FaGithub size={24} className="text-gray-800 dark:text-white" />
+          </a>
 
-        {/* Email */}
-        <a
-          href="mailto:marvrosanto@gmail.com"
-          aria-label="Email"
-          className="border border-gray-300 dark:border-white/30 rounded-[15px] p-3 hover:bg-black/10 dark:hover:bg-white/10 transition"
-        >
-          <FaEnvelope size={24} className="text-gray-800 dark:text-white" />
-        </a>
-      </div>
+          <a
+            href=""
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            className="border border-gray-300 dark:border-white/30 rounded-[15px] p-3 hover:bg-black/10 dark:hover:bg-white/10 transition"
+          >
+            <FaLinkedin size={24} className="text-gray-800 dark:text-white" />
+          </a>
+
+          <a
+            href="mailto:marvrosanto@gmail.com"
+            aria-label="Email"
+            className="border border-gray-300 dark:border-white/30 rounded-[15px] p-3 hover:bg-black/10 dark:hover:bg-white/10 transition"
+          >
+            <FaEnvelope size={24} className="text-gray-800 dark:text-white" />
+          </a>
+        </motion.div>
+      </motion.div>
     </section>
-
   );
 }

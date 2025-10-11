@@ -34,7 +34,8 @@
 
   p,
   span,
-  .text {
+  .text,
+  label {
     font-family: "IBM Plex Serif", sans-serif;
   }
 }

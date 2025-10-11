@@ -1,13 +1,54 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
-import smart_city_img_1 from '../assets/baguio-smart-city-1.jpg';
-import tcs_1_img from '../assets/TCS-1.jpg';
-import tcs_2_img from '../assets/TCS-2.png';
+import smart_city_img_1 from "../assets/baguio-smart-city-1.jpg";
+import tcs_1_img from "../assets/TCS-1.jpg";
+import tcs_2_img from "../assets/TCS-2.png";
+
+import cert_1 from "../assets/cert-1.png";
+import cert_2 from "../assets/cert-2.png";
+import cert_3 from "../assets/cert-3.png";
 
 const DEFAULT_ITEMS = [
   { id: 1, image: smart_city_img_1 },
   { id: 2, image: tcs_1_img },
   { id: 3, image: tcs_2_img },
+];
+
+const competitions = [
+  {
+    title: "Baguio Smart City Challenge",
+    year: "2024",
+    description:
+      "Represented ParkInTell in the Baguio Smart City Challenge 2024, collaborating with three team members to present our capstone project.",
+  },
+  {
+    title: "Tata Consultancy Services (TCS) Sustainathon Philippines 2023",
+    year: "2024",
+    description:
+      `Represented Team Career Catalyst, a four-member group, and secured 3rd place out of 10 finalist teams at the TCS
+       Sustainathon Finals 2023, held at the Marquis Events Place, Bonifacio Global City.`,
+  },
+];
+
+const certifications = [
+  {
+    title: "Digital Skills: User Experience",
+    issuer: "Accenture",
+    description:
+      "Comprehensive training in UX principles and user-centered design methodologies.",
+  },
+  {
+    title: "Graphic Design Essentials",
+    issuer: "Canva",
+    description:
+      "Mastered fundamental design principles and practical graphic design skills.",
+  },
+  {
+    title: "Postman API Fundamentals Student Expert",
+    issuer: "Postman",
+    description:
+      "Validated expertise in API testing, development, and documentation.",
+  },
 ];
 
 const DRAG_BUFFER = 0;
@@ -27,13 +68,11 @@ export function Carousel({
   const containerPadding = 16;
   const itemWidth = baseWidth - containerPadding * 2;
   const trackItemOffset = itemWidth + GAP;
-
   const carouselItems = loop ? [...items, items[0]] : items;
   const [currentIndex, setCurrentIndex] = useState(0);
   const x = useMotionValue(0);
   const [isHovered, setIsHovered] = useState(false);
   const [isResetting, setIsResetting] = useState(false);
-
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -192,54 +231,62 @@ export default function ExtraAndCertifications() {
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      if (width < 480) {
-        setCarouselWidth(320);
-      } else if (width < 768) {
-        setCarouselWidth(600);
-      } else {
-        setCarouselWidth(800);
-      }
+      if (width < 480) setCarouselWidth(320);
+      else if (width < 768) setCarouselWidth(600);
+      else setCarouselWidth(800);
     };
-
-    handleResize(); // initial run
+    handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
     <section className="w-full min-h-screen flex flex-col justify-center items-center bg-transparent text-gray-900 dark:text-white px-4 py-16">
-      <h2 className="text-4xl font-bold mb-2 text-center">Competitions and Certifications</h2>
-      <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 text-center">
-        Here are some of the certifications and events I've participated in.
-      </p>
+      <motion.div
+        className="text-center"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}>
+        <h2 className="text-2xl sm:text-4xl font-bold mb-2">Achievements & Learning</h2>
+        <div className="w-20 h-1 mx-auto mb-6 bg-black dark:bg-white" />
+        <p className="text-center max-w-2xl mx-auto">
+          Certifications earned and competitions participated in to enhance my skills
+        </p>
+      </motion.div>
 
-      {/* Button Tabs */}
-      <div className="flex p-2 gap-8 border border-black dark:border-white rounded-xl overflow-hidden mb-12">
+
+      {/* Tabs */}
+      <div className="flex p-2 gap-8 border border-black dark:border-white rounded-xl overflow-hidden mb-6 mt-6">
         <button
           onClick={() => setActiveTab("competitions")}
-          className={`flex flex-col items-center justify-center px-6 py-4 w-40 transition-colors duration-200 ${activeTab === "competitions"
-            ? "bg-white text-black font-bold border border-white dark:bg-white-900 dark:text-black dark:border-gray-900 rounded-xl"
-            : "text-black bg-gray-200 dark:text-white dark:bg-black"
+          className={`px-6 py-3 w-40 font-semibold rounded-xl transition ${activeTab === "competitions"
+            ? "bg-black text-white dark:bg-white dark:text-black"
+            : "hover:bg-gray-100 dark:hover:bg-gray-800"
             }`}
         >
-          <div className="w-6 h-6 bg-gray-400 dark:bg-gray-600 rounded-sm mb-1"></div>
           Competitions
         </button>
         <button
           onClick={() => setActiveTab("certifications")}
-          className={`flex flex-col items-center justify-center px-6 py-4 w-40 transition-colors duration-200 ${activeTab === "certifications"
-            ? "bg-white text-black font-bold border border-white dark:bg-white-900 dark:text-black dark:border-gray-900 rounded-xl"
-            : "text-black bg-gray-200 dark:text-white dark:bg-black"
+          className={`px-6 py-3 w-40 font-semibold rounded-xl transition ${activeTab === "certifications"
+            ? "bg-black text-white dark:bg-white dark:text-black"
+            : "hover:bg-gray-100 dark:hover:bg-gray-800"
             }`}
         >
-          <div className="w-6 h-6 bg-gray-400 dark:bg-gray-600 rounded-sm mb-1"></div>
           Certifications
         </button>
       </div>
 
-      {/* Carousel Section */}
+      {/* Competitions Tab */}
       {activeTab === "competitions" && (
-        <section className="extra-curricular w-full flex justify-center mt-8">
+        <motion.section
+          className="w-full flex flex-col items-center gap-10 mt-8"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          {/* Carousel */}
           <Carousel
             baseWidth={carouselWidth}
             autoplay
@@ -247,35 +294,61 @@ export default function ExtraAndCertifications() {
             pauseOnHover
             items={DEFAULT_ITEMS}
           />
-        </section>
+
+          {/* competition cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl w-full mt-6">
+            {competitions.map((comp, index) => (
+              <motion.div
+                key={index}
+                className="p-6 rounded-2xl border border-gray-300 dark:border-gray-700 shadow-lg bg-white dark:bg-[#111] text-left"
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.2, duration: 0.5 }}
+              >
+                <h3 className="text-xl font-semibold mb-2">{comp.title}</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
+                  {comp.year}
+                </p>
+                <p className="text-gray-700 dark:text-gray-400">{comp.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
       )}
 
+      {/* Certifications Tab */}
       {activeTab === "certifications" && (
-        <section className="certifications w-full flex justify-center">
-          <div className="max-w-5xl w-full mx-auto">
-            <div className="grid grid-cols-3 gap-4 mt-8">
-
-              <div className="border p-4 rounded-lg shadow-md">
-                <img src={tcs_1_img} alt="cert-1-img" className="mb-6" />
-                <h3 className="text-lg font-semibold mb-2">Digital Skills: User Experience</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">Accenture</p>
-              </div>
-
-              <div className="border p-4 rounded-lg shadow-md">
-
-                <img src={tcs_1_img} alt="cert-1-img" className="mb-6" />
-                <h3 className="text-lg font-semibold mb-2">Graphic Design Essentials</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">Canva</p>
-              </div>
-
-              <div className="border p-4 rounded-lg shadow-md">
-                <img src={tcs_1_img} alt="cert-1-img" className="mb-6" />
-                <h3 className="text-lg font-semibold mb-2">Postman API Fundamentals Student Expert</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-300">Postman</p>
-              </div>
-            </div>
+        <motion.section
+          className="w-full flex justify-center"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="max-w-5xl w-full mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8">
+            {certifications.map((cert, index) => (
+              <motion.div
+                key={index}
+                className="border p-4 rounded-lg shadow-md flex flex-col items-center text-center bg-white dark:bg-[#111]"
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.2, duration: 0.5 }}
+              >
+                <img
+                  src={[cert_1, cert_2, cert_3][index]}
+                  alt={cert.title}
+                  className="mb-4 h-40 object-contain"
+                />
+                <h3 className="text-lg font-semibold mb-2">{cert.title}</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300 mb-1">
+                  {cert.issuer}
+                </p>
+                <p className="text-sm text-gray-700 dark:text-gray-400">
+                  {cert.description}
+                </p>
+              </motion.div>
+            ))}
           </div>
-        </section>
+        </motion.section>
       )}
     </section>
   );
