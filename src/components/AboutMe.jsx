@@ -71,8 +71,9 @@ export default function AboutMe() {
 
             <div className="flex flex-wrap justify-center md:justify-start gap-3 sm:gap-4 pt-2 sm:pt-4">
               <a
-                href="#"
-                download
+                href="https://drive.google.com/file/d/1R-aT4PxAg6LrEt58cSKNE679-KfzkAGU/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group flex items-center gap-2 bg-foreground text-background px-5 sm:px-6 py-2.5 sm:py-3 font-semibold text-sm sm:text-base transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] rounded-md"
               >
                 <Download className="w-4 h-4" />

@@ -225,6 +225,9 @@ export function Carousel({
 }
 
 export default function ExtraAndCertifications() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [activeCertIndex, setActiveCertIndex] = useState(null);
+
   const [activeTab, setActiveTab] = useState("competitions");
   const [carouselWidth, setCarouselWidth] = useState(800);
 
@@ -336,8 +339,13 @@ export default function ExtraAndCertifications() {
                 <img
                   src={[cert_1, cert_2, cert_3][index]}
                   alt={cert.title}
-                  className="mb-4 h-40 object-contain"
+                  className="mb-4 h-40 object-contain cursor-pointer hover:scale-105 transition-transform"
+                  onClick={() => {
+                    setActiveCertIndex(index);
+                    setModalOpen(true);
+                  }}
                 />
+
                 <h3 className="text-lg font-semibold mb-2">{cert.title}</h3>
                 <p className="text-sm text-gray-600 dark:text-gray-300 mb-1">
                   {cert.issuer}
@@ -350,6 +358,40 @@ export default function ExtraAndCertifications() {
           </div>
         </motion.section>
       )}
+
+      {modalOpen && activeCertIndex !== null && (
+        <div
+          className="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
+          onClick={() => setModalOpen(false)}
+        >
+          <div
+            className="bg-white dark:bg-[#111] rounded-lg p-4 max-w-3xl max-h-[90vh] overflow-auto relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="absolute top-2 right-2 text-gray-700 dark:text-gray-200 hover:text-red-500 text-2xl font-bold"
+              onClick={() => setModalOpen(false)}
+            >
+              &times;
+            </button>
+            <img
+              src={[cert_1, cert_2, cert_3][activeCertIndex]}
+              alt={certifications[activeCertIndex].title}
+              className="w-full h-auto object-contain"
+            />
+            <h3 className="text-xl font-semibold mt-4 text-center">
+              {certifications[activeCertIndex].title}
+            </h3>
+            <p className="text-sm text-gray-600 dark:text-gray-300 text-center mb-2">
+              {certifications[activeCertIndex].issuer}
+            </p>
+            <p className="text-sm text-gray-700 dark:text-gray-400 text-center">
+              {certifications[activeCertIndex].description}
+            </p>
+          </div>
+        </div>
+      )}
+
     </section>
   );
 }

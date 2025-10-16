@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Sun, Moon, Home, Info, Mail } from 'lucide-react';
+import { Sun, Moon, Home, Info, Mail, Briefcase } from 'lucide-react';
 
 export default function Header() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -33,7 +33,7 @@ export default function Header() {
   return (
     <>
       {/* Desktop Header */}
-      <header className="hidden md:block sticky top-0 z-50 w-full backdrop-blur-xl bg-background/80 border-b-2 border-border px-16 py-5">
+      <header className="hidden md:block fixed top-0 z-50 w-full backdrop-blur-xl bg-background/80 border-b-2 border-border px-16 py-5">
         <div className="flex items-center justify-between">
           <div className='text-xl font-bold'>MR</div>
           <nav className="flex flex-1 justify-center space-x-8 text-sm font-medium text-gray-700 dark:text-gray-200">
@@ -64,7 +64,7 @@ export default function Header() {
           About
         </a>
         <a href="#work" className="flex flex-col items-center text-xs hover:text-blue-400 transition">
-          <Info size={20} />
+          <Briefcase size={20} />
           Work
         </a>
         <a href="#contact" className="flex flex-col items-center text-xs hover:text-blue-400 transition">

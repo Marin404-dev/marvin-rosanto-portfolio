@@ -3,21 +3,23 @@ import { motion } from 'framer-motion';
 import { FaGithub, FaChevronLeft, FaChevronRight, FaExternalLinkAlt } from "react-icons/fa";
 import ultrapark_img from '../assets/ultrapark-1.png';
 import pma_pmis_img from '../assets/pma-1.png';
+import portfolio_img from '../assets/portfolio-mockup.png';
+import laundry_img from '../assets/laundry-mockup.png';
 
 const projects = [
-  {
-    title: 'Lokalist',
-    description: 'lorem ipsum',
-    image: ultrapark_img,
-    tags: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL', 'Google Maps API'],
-    links: [{ label: 'GitHub', href: '.', icon: <FaGithub className="w-4 h-4" /> }],
-    type: 'Freelance Project'
-  },
+  // {
+  //   title: 'Lokalist',
+  //   description: 'lorem ipsum',
+  //   image: ultrapark_img,
+  //   tags: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL', 'Google Maps API'],
+  //   links: [],
+  //   type: 'Freelance Project'
+  // },
   {
     title: 'Personal Portfolio',
     description: 'Developing a fully responsive portfolio website using React and Tailwind CSS to showcase projects, skills, and experience. Designed with a clean UI, reusable components, and smooth navigation for an optimized user experience.',
-    image: ultrapark_img,
-    tags: ['React', 'Tailwind CSS', 'Vite'],
+    image: portfolio_img,
+    tags: ['React', 'Tailwind CSS', 'Vite', 'Vercel'],
     links: [
       { label: 'GitHub', href: 'https://github.com/Marin404-dev/marvin-rosanto-portfolio', icon: <FaGithub className="w-4 h-4" /> },
       { label: 'Live', href: '#', icon: <FaExternalLinkAlt className="w-4 h-4" /> }
@@ -27,9 +29,9 @@ const projects = [
   {
     title: 'Laundry Service Platform',
     description: 'Developed a laundry management and delivery platform that streamlines customer orders, delivery tracking, and driver management. Integrated Google Maps for accurate address handling and implemented loyalty rewards to enhance user experience.',
-    image: ultrapark_img,
-    tags: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'Express.js', 'MySQL', 'Java Android', 'Google Maps API', 'Firebase', 'Figma'],
-    links: [{ label: 'GitHub', href: '.', icon: <FaGithub className="w-4 h-4" /> }],
+    image: laundry_img,
+    tags: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'Express.js', 'MySQL', 'Java Android', 'Google Maps API', 'Firebase', 'Figma', 'Railway', 'Render'],
+    links: [],
     type: 'Freelance Project'
   },
   {
@@ -45,7 +47,7 @@ const projects = [
     description: 'Collaborated with a team to build UltraPark, a smart parking system featuring real-time slot detection and indoor navigation through a Progressive Web App. Designed and developed the Arduino-based hardware with ESP8266 for wireless data transmission and ensured system reliability through comprehensive testing.',
     image: ultrapark_img,
     tags: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'Express.js', 'MySQL', 'Selenium'],
-    links: [{ label: 'GitHub', href: '.', icon: <FaGithub className="w-4 h-4" /> }],
+    links: [],
     type: 'Capstone Project'
   }
 ];
@@ -92,14 +94,14 @@ export default function Projects() {
       {/* Carousel */}
       <div className="relative max-w-6xl mx-auto flex items-center">
         {/* Left Chevron*/}
-        <button
-          onClick={() => setPage((p) => Math.max(p - 1, 0))}
-          disabled={page === 0}
-          className={`hidden sm:flex absolute -left-4 sm:-left-10 text-lg sm:text-2xl p-1 sm:p-2 rounded-full bg-gray-800 text-white dark:bg-white dark:text-black hover:opacity-80 transition ${page === 0 ? 'opacity-50 cursor-not-allowed' : ''
-            }`}
-        >
-          <FaChevronLeft />
-        </button>
+        {page > 0 && (
+          <button
+            onClick={() => setPage((p) => Math.max(p - 1, 0))}
+            className="hidden sm:flex absolute -left-4 sm:-left-10 text-lg sm:text-2xl p-1 sm:p-2 rounded-full bg-gray-800 text-white dark:bg-white dark:text-black hover:opacity-80 transition"
+          >
+            <FaChevronLeft />
+          </button>
+        )}
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full px-2 sm:px-0">
@@ -162,14 +164,15 @@ export default function Projects() {
         </div>
 
         {/* Right Chevron */}
-        <button
-          onClick={() => setPage((p) => Math.min(p + 1, totalPages - 1))}
-          disabled={page === totalPages - 1}
-          className={`hidden sm:flex absolute -right-4 sm:-right-10 text-lg sm:text-2xl p-1 sm:p-2 rounded-full bg-gray-800 text-white dark:bg-white dark:text-black hover:opacity-80 transition ${page === totalPages - 1 ? 'opacity-50 cursor-not-allowed' : ''
-            }`}
-        >
-          <FaChevronRight />
-        </button>
+        {page < totalPages - 1 && (
+          <button
+            onClick={() => setPage((p) => Math.min(p + 1, totalPages - 1))}
+            className="hidden sm:flex absolute -right-4 sm:-right-10 text-lg sm:text-2xl p-1 sm:p-2 rounded-full bg-gray-800 text-white dark:bg-white dark:text-black hover:opacity-80 transition"
+          >
+            <FaChevronRight />
+          </button>
+        )}
+
       </div>
 
       {/* Mobile Page Numbers */}
