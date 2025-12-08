@@ -7,11 +7,12 @@ import tcs_2_img from "../assets/TCS-2.png";
 import cert_1 from "../assets/cert-1.png";
 import cert_2 from "../assets/cert-2.png";
 import cert_3 from "../assets/cert-3.png";
+import cert_4 from "../assets/cert-4.png"
 
 const DEFAULT_ITEMS = [
   { id: 1, image: smart_city_img_1 },
   { id: 2, image: tcs_1_img },
-  { id: 3, image: tcs_2_img },
+  { id: 3, image: tcs_2_img }
 ];
 
 const competitions = [
@@ -49,6 +50,12 @@ const certifications = [
     description:
       "Validated expertise in API testing, development, and documentation.",
   },
+  {
+    title: "Responsive Web Design Developer Certification",
+    issuer: "freeCodeCamp",
+    description:
+      "Successfully completed the Responsive Web Design curriculum, demonstrating proficiency in modern, mobile-first web layout techniques.",
+  }
 ];
 
 const DRAG_BUFFER = 0;
@@ -337,7 +344,7 @@ export default function ExtraAndCertifications() {
                 transition={{ delay: index * 0.2, duration: 0.5 }}
               >
                 <img
-                  src={[cert_1, cert_2, cert_3][index]}
+                  src={[cert_1, cert_2, cert_3, cert_4][index]}
                   alt={cert.title}
                   className="mb-4 h-40 object-contain cursor-pointer hover:scale-105 transition-transform"
                   onClick={() => {
@@ -375,7 +382,7 @@ export default function ExtraAndCertifications() {
               &times;
             </button>
             <img
-              src={[cert_1, cert_2, cert_3][activeCertIndex]}
+              src={[cert_1, cert_2, cert_3, cert_4][activeCertIndex]}
               alt={certifications[activeCertIndex].title}
               className="w-full h-auto object-contain"
             />
