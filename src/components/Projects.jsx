@@ -1,20 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FaGithub, FaChevronLeft, FaChevronRight, FaExternalLinkAlt } from "react-icons/fa";
+import { FaGithub, FaChevronLeft, FaChevronRight, FaExternalLinkAlt, FaBehanceSquare } from "react-icons/fa";
 import ultrapark_img from '../assets/ultrapark-1.png';
 import pma_pmis_img from '../assets/pma-1.png';
 import portfolio_img from '../assets/portfolio-mockup.png';
 import laundry_img from '../assets/laundry-mockup.png';
+import lokalist_img from '../assets/lokalist-mockup.png'
 
 const projects = [
   // {
-  //   title: 'Lokalist',
-  //   description: 'lorem ipsum',
-  //   image: ultrapark_img,
-  //   tags: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL', 'Google Maps API'],
-  //   links: [],
-  //   type: 'Freelance Project'
+  //   title: 'Unique',
+  //   description: 'Developed a fully responsive e-commerce website for Unique (U&I), a clothing brand celebrating individuality. This was a collaborative project, with my friend handling the web design and UI/UX, and me responsible for the coding and functionality.',
+  //   image: lokalist_img,
+  //   tags: ['React', 'Tailwind CSS', 'Vite', 'Vercel'],
+  //   links: [{ label: 'Live', href: 'https://unique-sepia.vercel.app', icon: <FaExternalLinkAlt className="w-4 h-4" /> },
+  //   { label: 'Behance', href: 'https://www.behance.net/gallery/237166035/Unique-Branding-Identity', icon: <FaBehanceSquare className="w-4 h-4" /> }],
+  //   type: 'Personal Project'
   // },
+  {
+    title: 'Tourism & Local Business Discovery Web Platform',
+    description: 'Developed a web-based platform that helps users discover local businesses, attractions, and events. Designed a user-focused interface with interactive business listings, search, and filtering features to enhance exploration and engagement. Ensured a smooth and responsive experience for visitors exploring tourism options and local services.',
+    image: lokalist_img,
+    tags: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL', 'Google Maps API'],
+    links: [{ label: 'Live', href: 'https://lokalist.infinityfree.me/', icon: <FaExternalLinkAlt className="w-4 h-4" /> }],
+    type: 'Freelance Project'
+  },
   {
     title: 'Personal Portfolio',
     description: 'Developing a fully responsive portfolio website using React and Tailwind CSS to showcase projects, skills, and experience. Designed with a clean UI, reusable components, and smooth navigation for an optimized user experience.',
