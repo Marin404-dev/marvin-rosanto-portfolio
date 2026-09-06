@@ -12,20 +12,17 @@ import Contact from './components/Contact.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <div className="relative">
-      {/* Blur layer */}
-      <div className="fixed inset-0 z-0 backdrop-blur-[2px] dark:backdrop-blur-[3px] pointer-events-none" />
-      {/* App content (above blur) */}
-      <div className="relative z-10">
-        <Header />
+    <div className="relative min-h-screen">
+      <Header />
+      <main>
         <Hero />
+        <Projects />
         <AboutMe />
         <TechStack />
-        <Projects />
         <ExtraAndCertifications />
         <Contact />
-        <Footer />
-      </div>
+      </main>
+      <Footer />
     </div>
   </StrictMode>
 );

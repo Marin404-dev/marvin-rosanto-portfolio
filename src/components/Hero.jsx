@@ -1,207 +1,80 @@
-import { useEffect, useRef, useState } from 'react';
-import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
-
-const TrueFocus = ({
-  sentence = "Web Developer|Quality Assurance|Full-Stack Developer",
-  className = "",
-  manualMode = true,
-  blurAmount = 2,
-  animationDuration = 0.3,
-  pauseBetweenAnimations = 1,
-}) => {
-  const words = sentence.split("|");
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [lastActiveIndex, setLastActiveIndex] = useState(null);
-  const containerRef = useRef(null);
-  const wordRefs = useRef([]);
-  const [focusRect, setFocusRect] = useState({ x: 0, y: 0, width: 0, height: 0 });
-
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const checkTheme = () =>
-      document.documentElement.classList.contains("dark");
-    setIsDark(checkTheme());
-
-    const observer = new MutationObserver(() => setIsDark(checkTheme()));
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-
-    return () => observer.disconnect();
-  }, []);
-
-  const borderColor = isDark ? "white" : "black";
-  const glowColor = isDark ? "rgba(255,255,255,0.8)" : "rgba(0,0,0,0.5)";
-
-  useEffect(() => {
-    if (!manualMode) {
-      const interval = setInterval(() => {
-        setCurrentIndex((prev) => (prev + 1) % words.length);
-      }, (animationDuration + pauseBetweenAnimations) * 1000);
-
-      return () => clearInterval(interval);
-    }
-  }, [manualMode, animationDuration, pauseBetweenAnimations, words.length]);
-
-  useEffect(() => {
-    if (currentIndex === null || currentIndex === -1) return;
-    if (!wordRefs.current[currentIndex] || !containerRef.current) return;
-
-    const parentRect = containerRef.current.getBoundingClientRect();
-    const activeRect = wordRefs.current[currentIndex].getBoundingClientRect();
-
-    setFocusRect({
-      x: activeRect.left - parentRect.left,
-      y: activeRect.top - parentRect.top,
-      width: activeRect.width,
-      height: activeRect.height,
-    });
-  }, [currentIndex, words.length]);
-
-  const handleMouseEnter = (index) => {
-    if (manualMode) {
-      setLastActiveIndex(index);
-      setCurrentIndex(index);
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (manualMode) {
-      setCurrentIndex(lastActiveIndex);
-    }
-  };
-
-  return (
-    <div
-      ref={containerRef}
-      className={`relative flex flex-col sm:flex-row justify-center items-center text-base sm:text-lg md:text-xl lg:text-2xl ${className}`}
-      style={{ padding: "0.5rem 1rem" }}
-    >
-
-      {/* Focus rectangle */}
-      <motion.div
-        className="absolute pointer-events-none"
-        style={{
-          left: focusRect.x,
-          top: focusRect.y,
-          width: focusRect.width,
-          height: focusRect.height,
-          zIndex: 1,
-        }}
-        animate={{
-          left: focusRect.x,
-          top: focusRect.y,
-          width: focusRect.width,
-          height: focusRect.height,
-        }}
-        transition={{ duration: animationDuration }}
-      >
-        {/* Corners */}
-        {["t-l", "t-r", "b-l", "b-r"].map((corner) => {
-          const positionClasses = {
-            "t-l": "left-0 top-0 border-t-2 border-l-2",
-            "t-r": "right-0 top-0 border-t-2 border-r-2",
-            "b-l": "left-0 bottom-0 border-b-2 border-l-2",
-            "b-r": "right-0 bottom-0 border-b-2 border-r-2",
-          };
-
-          return (
-            <div
-              key={corner}
-              className={`absolute w-3 h-1.5 ${positionClasses[corner]}`}
-              style={{
-                borderColor,
-                filter: `drop-shadow(0 0 2px ${glowColor})`,
-                background: "transparent",
-                zIndex: 2,
-              }}
-            />
-          );
-        })}
-      </motion.div>
-
-      {/* Words */}
-      {words.map((word, i) => (
-        <span
-          key={i}
-          ref={(el) => (wordRefs.current[i] = el)}
-          onMouseEnter={() => handleMouseEnter(i)}
-          onMouseLeave={handleMouseLeave}
-          className={`relative z-10 px-1 mx-1 sm:mx-2 md:mx-3 transition ${i === currentIndex ? "text-white-400 font-bold" : ""
-            }`}
-          style={i !== currentIndex ? { filter: `blur(${blurAmount}px)` } : {}}
-        >
-          {word}
-        </span>
-      ))}
-    </div>
-  );
-};
+// eslint-disable-next-line no-unused-vars
+import { motion } from 'framer-motion';
+import { ArrowDownRight, Download, Mail, MapPin } from 'lucide-react';
+import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
+import marvinImg from '../assets/marvin.jpg';
 
 export default function Hero() {
   return (
-    <section className="w-full min-h-screen flex flex-col justify-center items-center bg-transparent text-gray-900 dark:text-white text-center" id='home'>
+    <section id="home" className="page-container grid min-h-[calc(100vh-5rem)] items-center gap-14 py-16 sm:py-24 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20 lg:py-28">
       <motion.div
-        className="flex flex-col items-center space-y-8"
-        initial={{ opacity: 0, y: 20 }}
+        className="max-w-2xl"
+        initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.6 }}
       >
-        <motion.h1
-          className='font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl'
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          Marvin Rosanto
-        </motion.h1>
+        <p className="eyebrow mb-7">Marvin Rosanto / Portfolio</p>
+        <h1 className="max-w-3xl text-[clamp(3.4rem,8vw,7.4rem)] font-bold leading-[0.9] tracking-[-0.075em]">
+          Web developer
+          <span className="block text-[var(--accent)]">with a quality mindset.</span>
+        </h1>
+        <p className="mt-8 max-w-xl text-lg leading-relaxed text-[var(--muted)] sm:text-xl">
+          I build reliable, user-focused web experiences with a foundation in development and quality assurance.
+          I am currently working as an Computer Programmer at BGHMC in Baguio City.
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.5 }}
-        >
-          <TrueFocus
-            className="flex flex-col items-center px-4 text-center max-w-full"
-            sentence="Web Developer|Quality Assurance|Full-Stack Developer"
-          />
-        </motion.div>
-
-        {/* Social icons */}
-        <motion.div
-          className="flex gap-4 justify-center mt-32"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.5 }}
-        >
+        <div className="mt-9 flex flex-wrap gap-3">
+          <a href="#work" className="button-primary">
+            View selected work
+            <ArrowDownRight size={16} aria-hidden="true" />
+          </a>
           <a
-            href="https://github.com/Marin404-dev"
+            href="https://drive.google.com/file/d/1R-aT4PxAg6LrEt58cSKNE679-KfzkAGU/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="GitHub"
-            className="border border-gray-300 dark:border-white/30 rounded-[15px] p-3 hover:bg-black/10 dark:hover:bg-white/10 transition"
+            className="button-secondary"
           >
-            <FaGithub size={24} className="text-gray-800 dark:text-white" />
+            Download resume
+            <Download size={16} aria-hidden="true" />
           </a>
+        </div>
 
-          <a
-            href=""
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className="border border-gray-300 dark:border-white/30 rounded-[15px] p-3 hover:bg-black/10 dark:hover:bg-white/10 transition"
-          >
-            <FaLinkedin size={24} className="text-gray-800 dark:text-white" />
+        <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-3 text-sm text-[var(--muted)]">
+          <a href="https://github.com/Marin404-dev" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 transition-colors hover:text-[var(--accent)]">
+            <FaGithub aria-hidden="true" /> GitHub
           </a>
+          <span className="hidden h-4 w-px bg-[var(--line)] sm:block" aria-hidden="true" />
+          <a href="https://www.linkedin.com/in/marvin-rosanto/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 transition-colors hover:text-[var(--accent)]">
+            <FaLinkedin aria-hidden="true" /> LinkedIn
+          </a>
+          <span className="hidden h-4 w-px bg-[var(--line)] sm:block" aria-hidden="true" />
+          <a href="mailto:marvrosanto@gmail.com" className="inline-flex items-center gap-2 transition-colors hover:text-[var(--accent)]">
+            <FaEnvelope aria-hidden="true" /> Email
+          </a>
+        </div>
+      </motion.div>
 
-          <a
-            href="mailto:marvrosanto@gmail.com"
-            aria-label="Email"
-            className="border border-gray-300 dark:border-white/30 rounded-[15px] p-3 hover:bg-black/10 dark:hover:bg-white/10 transition"
-          >
-            <FaEnvelope size={24} className="text-gray-800 dark:text-white" />
-          </a>
-        </motion.div>
+      <motion.div
+        className="relative mx-auto w-full max-w-md lg:ml-auto"
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.7, delay: 0.15 }}
+      >
+        <div className="mb-5 flex items-start justify-between font-sans text-xs font-bold uppercase tracking-[0.16em] text-[var(--accent)]">
+          <span>01 / Intro</span>
+          <span>Current chapter</span>
+        </div>
+        <div className="image-frame ml-3">
+          <img src={marvinImg} alt="Marvin Rosanto wearing a white shirt and black tie" className="relative aspect-[4/5] w-full object-cover grayscale-[0.12]" />
+        </div>
+        <div className="mt-5 flex items-center gap-2 text-sm text-[var(--muted)]">
+          <MapPin size={16} className="text-[var(--accent)]" aria-hidden="true" />
+          <span>Baguio City, Philippines</span>
+        </div>
+        <div className="mt-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--muted)]">
+          <Mail size={14} aria-hidden="true" />
+          <span>Open to thoughtful collaborations</span>
+        </div>
       </motion.div>
     </section>
   );

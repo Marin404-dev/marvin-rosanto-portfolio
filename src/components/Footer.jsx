@@ -1,10 +1,8 @@
-import React from 'react'
-
 export default function Footer() {
   return (
-    <div className='backdrop-blur-[4px] w-full h-5 p-5 flex justify-center items-center text-gray-900 dark:text-white text-sm'>
-      <p className='text-center'>
-        &copy; {new Date().getFullYear()} Marvin Rosanto. All rights reserved </p>
-    </div>
-  )
+    <footer className="page-container flex flex-col gap-3 border-t border-[var(--line)] py-6 font-sans text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-[var(--muted)] sm:flex-row sm:items-center sm:justify-between">
+      <p>&copy; {new Date().getFullYear()} Marvin Rosanto</p>
+      <a href="#home" className="text-[var(--accent)] hover:text-[var(--ink)]">Back to top &uarr;</a>
+    </footer>
+  );
 }

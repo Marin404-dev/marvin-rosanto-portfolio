@@ -1,142 +1,72 @@
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
-import { Send, MapPin, Phone } from 'lucide-react';
+import { Mail, MapPin, Send } from 'lucide-react';
+import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa';
 
 export default function Contact() {
   return (
-    <section className="w-full min-h-screen flex flex-col justify-center items-center bg-transparent text-gray-900 dark:text-white px-4 py-20" id='contact'>
-      <motion.div
-        className="w-full max-w-6xl"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="text-center mb-16">
-          <h1 className="font-bold text-4xl sm:text-5xl mb-4">Let's Connect</h1>
-          <div className="w-20 h-1 bg-black dark:bg-white mx-auto mb-6" />
-          <p className="max-w-2xl mx-auto">
-            Have a project in mind? Let's bring your ideas to life together
-          </p>
+    <section id="contact" className="editorial-section pb-10">
+      <div className="page-container grid gap-12 lg:grid-cols-[0.24fr_0.76fr] lg:gap-20">
+        <div>
+          <span className="section-index">06</span>
+          <p className="mt-7 max-w-[12rem] text-sm leading-relaxed text-[var(--muted)]">Have a thoughtful project or opportunity in mind?</p>
         </div>
 
-        <div className='grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto'>
-          <motion.div
-            className="border-2 border-border p-8"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h2 className="text-2xl font-semibold mb-6">Get in Touch</h2>
-            <p className="leading-relaxed mb-6">
-              I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
-            </p>
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.55 }}
+        >
+          <p className="eyebrow mb-4">Contact / Let&apos;s talk</p>
+          <h2 className="max-w-3xl text-5xl font-bold leading-[0.92] tracking-[-0.07em] sm:text-7xl">Let&apos;s make something useful.</h2>
 
-            <div className="space-y-4 mb-8">
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-foreground text-background dark:bg-white dark:text-black bg-black text-white">
-                  <FaEnvelope className="w-5 h-5" />
+          <div className="mt-12 grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+            <div>
+              <p className="max-w-sm text-base leading-relaxed text-[var(--muted)]">I&apos;m open to discussing web development, quality assurance, creative ideas, and opportunities to contribute to meaningful work.</p>
+              <div className="mt-8 space-y-4 border-y border-[var(--line)] py-6">
+                <a href="mailto:marvrosanto@gmail.com" className="flex items-center gap-3 text-sm text-[var(--muted)] transition-colors hover:text-[var(--accent)]">
+                  <Mail size={17} className="text-[var(--accent)]" aria-hidden="true" />
+                  marvrosanto@gmail.com
+                </a>
+                <div className="flex items-center gap-3 text-sm text-[var(--muted)]">
+                  <MapPin size={17} className="text-[var(--accent)]" aria-hidden="true" />
+                  Baguio City, Philippines
                 </div>
-                <span className="text-sm">marvrosanto@gmail.com</span>
               </div>
-              <div className="flex items-center gap-3">
-                <div className="p-2 bg-foreground text-background dark:bg-white dark:text-black bg-black text-white">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <span className="text-sm">Baguio City, Philippines</span>
+              <div className="mt-6 flex gap-5">
+                <a href="https://github.com/Marin404-dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="inline-flex items-center gap-2 font-sans text-xs font-bold uppercase tracking-[0.08em] text-[var(--muted)] hover:text-[var(--accent)]">
+                  <FaGithub aria-hidden="true" /> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/marvin-rosanto/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="inline-flex items-center gap-2 font-sans text-xs font-bold uppercase tracking-[0.08em] text-[var(--muted)] hover:text-[var(--accent)]">
+                  <FaLinkedin aria-hidden="true" /> LinkedIn
+                </a>
+                <a href="mailto:marvrosanto@gmail.com" aria-label="Email Marvin Rosanto" className="inline-flex items-center gap-2 font-sans text-xs font-bold uppercase tracking-[0.08em] text-[var(--muted)] hover:text-[var(--accent)]">
+                  <FaEnvelope aria-hidden="true" /> Email
+                </a>
               </div>
             </div>
 
-            <div className="flex gap-4">
-              <a
-                href="https://github.com/Marin404-dev"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-                className="group p-3 border-2 border-foreground hover:bg-foreground hover:text-background transition-all duration-300"
-              >
-                <FaGithub size={24} />
-              </a>
-              <a
-                href=""
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="group p-3 border-2 border-foreground hover:bg-foreground hover:text-background transition-all duration-300"
-              >
-                <FaLinkedin size={24} />
-              </a>
-              <a
-                href="mailto:marvrosanto@gmail.com"
-                aria-label="Email"
-                className="group p-3 border-2 border-foreground hover:bg-foreground hover:text-background transition-all duration-300"
-              >
-                <FaEnvelope size={24} />
-              </a>
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="border-2 border-border p-8"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <form
-              action="mailto:marvrosanto@gmail.com"
-              method="POST"
-              encType="text/plain"
-              className="flex flex-col gap-5"
-            >
+            <form action="mailto:marvrosanto@gmail.com" method="POST" encType="text/plain" className="space-y-6">
               <div>
-                <label className="block text-sm font-medium mb-2">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="John Doe"
-                  required
-                  className="w-full p-3 border-2 border-border bg-background focus:outline-none focus:border-secondary transition-all duration-200"
-                />
+                <label htmlFor="name" className="eyebrow mb-2 block">Your name</label>
+                <input id="name" type="text" name="name" placeholder="John Doe" required className="w-full border-b border-[var(--line)] bg-transparent px-0 py-3 font-serif text-base text-[var(--ink)] placeholder:text-[var(--muted)] focus:border-[var(--accent)] focus:outline-none" />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-2">
-                  Your Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="john@example.com"
-                  required
-                  className="w-full p-3 border-2 border-border bg-background focus:outline-none focus:border-secondary transition-all duration-200"
-                />
+                <label htmlFor="email" className="eyebrow mb-2 block">Your email</label>
+                <input id="email" type="email" name="email" placeholder="john@example.com" required className="w-full border-b border-[var(--line)] bg-transparent px-0 py-3 font-serif text-base text-[var(--ink)] placeholder:text-[var(--muted)] focus:border-[var(--accent)] focus:outline-none" />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-2">
-                  Your Message
-                </label>
-                <textarea
-                  name="message"
-                  placeholder="Tell me about your project..."
-                  required
-                  rows={5}
-                  className="w-full p-3 border-2 border-border bg-background focus:outline-none focus:border-secondary resize-none transition-all duration-200"
-                />
+                <label htmlFor="message" className="eyebrow mb-2 block">Your message</label>
+                <textarea id="message" name="message" placeholder="Tell me about your project..." required rows={4} className="w-full resize-none border-b border-[var(--line)] bg-transparent px-0 py-3 font-serif text-base text-[var(--ink)] placeholder:text-[var(--muted)] focus:border-[var(--accent)] focus:outline-none" />
               </div>
-              <button
-                type="submit"
-                className="group flex items-center justify-center gap-2 border-2 border-black dark:border-white bg-transparent text-black dark:text-white px-6 py-3 font-semibold rounded-md transition-all duration-300 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black"
-              >
-                <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                Send Message
+              <button type="submit" className="button-primary">
+                <Send size={16} aria-hidden="true" /> Send message
               </button>
             </form>
-          </motion.div>
-        </div>
-      </motion.div>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 }

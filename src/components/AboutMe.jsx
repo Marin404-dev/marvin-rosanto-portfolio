@@ -1,92 +1,67 @@
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
-import { Download, Mail, GraduationCap } from 'lucide-react';
-import marvinImg from '../assets/marvin.jpg';
+import { BriefcaseBusiness, Download, GraduationCap, Mail } from 'lucide-react';
 
 export default function AboutMe() {
   return (
-    <section
-      className="w-full min-h-screen flex flex-col justify-center items-center px-4 sm:px-8 py-16 sm:py-20"
-      id="about"
-    >
-      <div className="w-full max-w-5xl mx-auto">
-        {/* Section Header */}
-        <motion.div
-          className="mb-12 sm:mb-20 text-center md:text-left"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">About Me</h2>
-          <div className="w-16 sm:w-20 h-1 mx-auto md:mx-0 bg-foreground dark:bg-white bg-black" />
-        </motion.div>
+    <section id="about" className="editorial-section">
+      <div className="page-container grid gap-12 lg:grid-cols-[0.24fr_0.76fr] lg:gap-20">
+        <div>
+          <span className="section-index">03</span>
+          <p className="mt-7 max-w-[12rem] text-sm leading-relaxed text-[var(--muted)]">A closer look at the person behind the work.</p>
+        </div>
 
-        {/* Content Grid */}
         <motion.div
-          className="grid md:grid-cols-2 gap-8 sm:gap-12 items-center"
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.55 }}
         >
-          {/* Image Section */}
-          <motion.div
-            className="flex justify-center md:justify-end order-1 md:order-2 overflow-visible"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <div className="relative w-full max-w-[280px] sm:max-w-sm aspect-[3/4] overflow-visible">
-              <div className="relative w-full h-full overflow-visible">
-                <img
-                  src={marvinImg}
-                  alt="Marvin Rosanto"
-                  className="w-full h-full object-cover border-2 border-foreground rounded-md"
-                />
+          <p className="eyebrow mb-4">About / Experience</p>
+          <h2 className="max-w-3xl text-4xl font-bold leading-[0.98] tracking-[-0.06em] sm:text-6xl">
+            Building with curiosity, testing with care.
+          </h2>
+
+          <div className="mt-9 grid gap-8 text-base leading-relaxed text-[var(--muted)] lg:grid-cols-2 lg:gap-12">
+            <p>
+              I work across web development and quality assurance, combining practical implementation with a close eye for how a product behaves for real people. My projects have included business discovery platforms, service systems, and internal tools.
+            </p>
+            <p>
+              I am currently an Computer Programmer at BGHMC in Baguio City. Before that, I completed my IT degree at Saint Louis University and built experience through freelance work, internship projects, competitions, and continued self-study.
+            </p>
+          </div>
+
+          <div className="mt-12 grid border-y border-[var(--line)] sm:grid-cols-2">
+            <div className="flex gap-4 border-b border-[var(--line)] py-6 sm:border-b-0 sm:border-r sm:pr-8">
+              <BriefcaseBusiness className="mt-1 shrink-0 text-[var(--accent)]" size={20} aria-hidden="true" />
+              <div>
+                <p className="eyebrow mb-2">Current role</p>
+                <p className="font-sans text-lg font-semibold">Computer Programmer at BGHMC</p>
+                <p className="mt-1 text-sm text-[var(--muted)]">Baguio City, Philippines</p>
               </div>
-              <div className="absolute -bottom-5 -right-5 sm:-bottom-7 sm:-right-6 w-20 sm:w-24 h-20 sm:h-24 border-2 border-secondary pointer-events-none" />
             </div>
-          </motion.div>
-
-
-          {/* Text Content */}
-          <div className="space-y-6 sm:space-y-8 order-2 md:order-1 text-center md:text-left">
-            <div>
-              <h3 className="text-xl sm:text-2xl font-bold mb-3">Hello, I'm Marvin Rosanto</h3>
-              <p className="text-sm sm:text-base leading-relaxed text-muted-foreground mb-4">
-                I'm a fresh IT graduate from Saint Louis University passionate about web and full-stack development.
-                I've built projects using HTML, CSS, JavaScript, PHP, and MySQL, and I'm currently learning React and Tailwind to enhance my frontend skills.
-              </p>
-              <p className="text-sm sm:text-base leading-relaxed text-muted-foreground">
-                I also have hands-on experience in test automation using tools like Selenium, Postman, and Cypress.
-                To grow beyond the classroom, I've earned certifications and joined tech-related extracurriculars that sharpened my practical skills.
-              </p>
+            <div className="flex gap-4 py-6 sm:pl-8">
+              <GraduationCap className="mt-1 shrink-0 text-[var(--accent)]" size={20} aria-hidden="true" />
+              <div>
+                <p className="eyebrow mb-2">Education</p>
+                <p className="font-sans text-lg font-semibold">Saint Louis University</p>
+                <p className="mt-1 text-sm text-[var(--muted)]">Information Technology</p>
+              </div>
             </div>
+          </div>
 
-            <div className="flex justify-center md:justify-start items-center gap-2 sm:gap-3 text-sm sm:text-base">
-              <GraduationCap className="w-4 h-4 sm:w-5 sm:h-5" />
-              <span>Saint Louis University</span>
-            </div>
-
-            <div className="flex flex-wrap justify-center md:justify-start gap-3 sm:gap-4 pt-2 sm:pt-4">
-              <a
-                href="https://drive.google.com/file/d/1R-aT4PxAg6LrEt58cSKNE679-KfzkAGU/view?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-2 bg-foreground text-background px-5 sm:px-6 py-2.5 sm:py-3 font-semibold text-sm sm:text-base transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] rounded-md"
-              >
-                <Download className="w-4 h-4" />
-                Download Resume
-              </a>
-              <a
-                href="#contact"
-                className="group flex items-center gap-2 border-2 border-foreground px-5 sm:px-6 py-2.5 sm:py-3 font-semibold text-sm sm:text-base transition-all duration-200 hover:bg-foreground hover:text-background hover:scale-[1.02] active:scale-[0.98] rounded-md"
-              >
-                <Mail className="w-4 h-4" />
-                Get in Touch
-              </a>
-            </div>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <a
+              href="https://drive.google.com/file/d/1R-aT4PxAg6LrEt58cSKNE679-KfzkAGU/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="button-primary"
+            >
+              <Download size={16} aria-hidden="true" /> Download resume
+            </a>
+            <a href="#contact" className="button-secondary">
+              <Mail size={16} aria-hidden="true" /> Get in touch
+            </a>
           </div>
         </motion.div>
       </div>
