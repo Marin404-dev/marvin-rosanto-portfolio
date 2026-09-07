@@ -6,8 +6,17 @@ import pmaPmisImg from '../assets/pma-1.png';
 import portfolioImg from '../assets/portfolio-mockup.png';
 import laundryImg from '../assets/laundry-mockup.png';
 import lokalistImg from '../assets/lokalist-mockup.png';
+import kinsenasImg from '../assets/kinsenas-mockup.png';
 
 const projects = [
+  {
+    title: 'Kinsenas',
+    description: 'A web-based personal finance platform I built to manage my bi-monthly income, track expenses, set budgets, and plan my finances around each payday.',
+    image: kinsenasImg,
+    tags: ['Personal finance', 'Budgeting', 'Payday planning'],
+    links: [{ label: 'GitHub', href: 'https://github.com/your-username/kinsenas', icon: <Github size={15} aria-hidden="true" /> }],
+    type: 'Personal project',
+  },
   {
     title: 'Tourism & Local Business Discovery Web Platform',
     description: 'A web-based platform that helps users discover local businesses, attractions, and events through interactive listings, search, filtering, and maps.',
