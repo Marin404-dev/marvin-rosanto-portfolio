@@ -61,8 +61,7 @@ export default function TechStack() {
     <section className="editorial-section" aria-labelledby="tech-stack-title">
       <div className="page-container grid gap-12 lg:grid-cols-[0.24fr_0.76fr] lg:gap-20">
         <div>
-          <span className="section-index">04</span>
-          <p className="mt-7 max-w-[12rem] text-sm leading-relaxed text-[var(--muted)]">The tools I use to build, test, and ship thoughtful web experiences.</p>
+          <p className="max-w-[12rem] text-sm leading-relaxed text-[var(--muted)]">The tools I use to build, test, and ship thoughtful web experiences.</p>
         </div>
 
         <div>

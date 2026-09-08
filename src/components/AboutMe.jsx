@@ -7,8 +7,7 @@ export default function AboutMe() {
     <section id="about" className="editorial-section">
       <div className="page-container grid gap-12 lg:grid-cols-[0.24fr_0.76fr] lg:gap-20">
         <div>
-          <span className="section-index">03</span>
-          <p className="mt-7 max-w-[12rem] text-sm leading-relaxed text-[var(--muted)]">A closer look at the person behind the work.</p>
+          <p className="max-w-[12rem] text-sm leading-relaxed text-[var(--muted)]">A closer look at the person behind the work.</p>
         </div>
 
         <motion.div

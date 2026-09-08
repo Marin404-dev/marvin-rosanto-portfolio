@@ -61,7 +61,7 @@ export default function Hero() {
         transition={{ duration: 0.7, delay: 0.15 }}
       >
         <div className="mb-5 flex items-start justify-between font-sans text-xs font-bold uppercase tracking-[0.16em] text-[var(--accent)]">
-          <span>01 / Intro</span>
+          <span>Intro</span>
           <span>Current chapter</span>
         </div>
         <div className="image-frame ml-3">

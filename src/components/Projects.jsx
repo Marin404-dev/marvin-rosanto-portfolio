@@ -100,8 +100,7 @@ export default function Projects() {
       <div className="page-container">
         <div className="grid gap-8 lg:grid-cols-[0.24fr_0.76fr] lg:gap-20">
           <div>
-            <span className="section-index">02</span>
-            <p className="mt-7 max-w-[12rem] text-sm leading-relaxed text-[var(--muted)]">Selected work from freelance, academic, internship, and personal projects.</p>
+            <p className="max-w-[12rem] text-sm leading-relaxed text-[var(--muted)]">Selected work from freelance, academic, internship, and personal projects.</p>
           </div>
           <div>
             <p className="eyebrow mb-4">Selected work</p>
@@ -141,7 +140,6 @@ export default function Projects() {
                   <p className="eyebrow mb-3">{project.type}</p>
                   <h3 className="text-2xl font-bold leading-tight tracking-[-0.04em]">{project.title}</h3>
                 </div>
-                <span className="font-sans text-xs text-[var(--muted)]">0{index + 2}</span>
               </div>
               <p className="mt-4 text-sm leading-relaxed text-[var(--muted)]">{project.description}</p>
               <div className="mt-5"><ProjectMeta project={project} /></div>

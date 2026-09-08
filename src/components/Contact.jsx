@@ -8,8 +8,7 @@ export default function Contact() {
     <section id="contact" className="editorial-section pb-10">
       <div className="page-container grid gap-12 lg:grid-cols-[0.24fr_0.76fr] lg:gap-20">
         <div>
-          <span className="section-index">06</span>
-          <p className="mt-7 max-w-[12rem] text-sm leading-relaxed text-[var(--muted)]">Have a thoughtful project or opportunity in mind?</p>
+          <p className="max-w-[12rem] text-sm leading-relaxed text-[var(--muted)]">Have a thoughtful project or opportunity in mind?</p>
         </div>
 
         <motion.div

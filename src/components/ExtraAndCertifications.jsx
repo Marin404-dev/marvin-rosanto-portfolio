@@ -51,8 +51,7 @@ export default function ExtraAndCertifications() {
     <section className="editorial-section" aria-labelledby="achievements-title">
       <div className="page-container grid gap-12 lg:grid-cols-[0.24fr_0.76fr] lg:gap-20">
         <div>
-          <span className="section-index">05</span>
-          <p className="mt-7 max-w-[12rem] text-sm leading-relaxed text-[var(--muted)]">Proof of learning beyond the classroom and day-to-day work.</p>
+          <p className="max-w-[12rem] text-sm leading-relaxed text-[var(--muted)]">Proof of learning beyond the classroom and day-to-day work.</p>
         </div>
 
         <div>

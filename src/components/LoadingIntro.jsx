@@ -78,7 +78,7 @@ export default function LoadingIntro({ onComplete }) {
             />
           </div>
           <div className="absolute bottom-6 left-6 right-6 flex justify-between font-sans text-[0.62rem] font-bold uppercase tracking-[0.18em] text-[var(--muted)] sm:bottom-10 sm:left-10 sm:right-10">
-            <span>01 / Entry</span>
+            <span>Entry / Intro</span>
             <span>Web / QA / Full-stack</span>
           </div>
         </motion.div>
