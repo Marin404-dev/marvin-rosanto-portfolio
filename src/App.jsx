@@ -4,6 +4,7 @@ import LoadingIntro from './components/LoadingIntro.jsx';
 import Hero from './components/Hero.jsx';
 import AboutMe from './components/AboutMe.jsx';
 import TechStack from './components/TechStack.jsx';
+import GithubActivity from './components/GithubActivity.jsx';
 import Projects from './components/Projects.jsx';
 import ExtraAndCertifications from './components/ExtraAndCertifications.jsx';
 import Footer from './components/Footer.jsx';
@@ -35,6 +36,7 @@ export default function App() {
             <Projects />
             <AboutMe />
             <TechStack />
+            <GithubActivity />
             <ExtraAndCertifications />
             <Contact />
           </main>
